@@ -6,9 +6,8 @@
 body {
     margin: 0;
     overflow: hidden;
-
     font-family: Arial, sans-serif;
-    background-color: #5dbb63;
+    background: #5dbb63;
 }
 
 #game {
@@ -18,11 +17,9 @@ body {
 
 #map {
     position: relative;
-
     width: 100%;
     height: 100%;
-
-    background-color: #5dbb63;
+    background: #5dbb63;
 }
 
 /* =========================
@@ -31,90 +28,127 @@ body {
 
 .path {
     position: absolute;
-
-    height: 30px;
-
-    background-color: #d6b36a;
-    border-radius: 15px;
-
+    height: 12px;
+    background: #d6b36a;
+    border-radius: 10px;
     transform-origin: left center;
 }
 
+/* Desde el inicio hacia SOBRE MÍ */
 .path-1 {
+    width: 170px;
+    left: 12%;
+    top: 57%;
+}
+
+/* SOBRE MÍ hacia la bifurcación */
+.path-2 {
+    width: 180px;
+    left: 25%;
+    top: 57%;
+    transform: rotate(-35deg);
+}
+
+/* Bifurcación hacia HABILIDADES */
+.path-3 {
     width: 220px;
-
-    left: 18%;
-    top: 55%;
-
+    left: 37%;
+    top: 44%;
     transform: rotate(-25deg);
 }
 
-.path-2 {
-    width: 250px;
-
-    left: 30%;
-    top: 42%;
-
-    transform: rotate(-20deg);
-}
-
-.path-3 {
-    width: 250px;
-
-    left: 48%;
-    top: 35%;
-
-    transform: rotate(15deg);
-}
-
+/* SOBRE MÍ hacia PROYECTOS */
 .path-4 {
-    width: 280px;
+    width: 300px;
+    left: 37%;
+    top: 58%;
+}
 
-    left: 55%;
-    top: 50%;
-
-    transform: rotate(25deg);
+/* PROYECTOS hacia FORMACIÓN */
+.path-5 {
+    width: 170px;
+    left: 72%;
+    top: 58%;
+    transform: rotate(35deg);
 }
 
 /* =========================
-   NIVELES
+   PUNTOS
    ========================= */
 
-.level {
+.node {
     position: absolute;
 
-    width: 130px;
-    height: 70px;
+    width: 28px;
+    height: 28px;
 
-    border: 4px solid #222;
-    border-radius: 20px;
-
-    background-color: white;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
+    background: white;
+    border: 6px solid #333;
+    border-radius: 50%;
 }
 
-.level-about {
+/* Punto inicial */
+.node-start {
+    left: 11%;
+    top: 54%;
+}
+
+/* SOBRE MÍ */
+.node-about {
     left: 25%;
-    top: 48%;
+    top: 54%;
 }
 
-.level-skills {
-    left: 45%;
-    top: 20%;
+/* HABILIDADES */
+.node-skills {
+    left: 52%;
+    top: 25%;
 }
 
-.level-projects {
+/* PROYECTOS */
+.node-projects {
     left: 70%;
-    top: 40%;
+    top: 54%;
 }
 
-.level-education {
+/* FORMACIÓN */
+.node-education {
+    left: 78%;
+    top: 70%;
+}
+
+/* =========================
+   NOMBRES
+   ========================= */
+
+.level-name {
+    position: absolute;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    color: white;
+    text-shadow: 2px 2px 0 #333;
+}
+
+.name-about {
+    left: 21%;
+    top: 61%;
+}
+
+.name-skills {
+    left: 47%;
+    top: 18%;
+}
+
+.name-projects {
+    left: 72%;
+    top: 47%;
+}
+
+.name-education {
     left: 75%;
-    top: 65%;
+    top: 76%;
 }
 
 /* =========================
@@ -124,10 +158,8 @@ body {
 #player {
     position: absolute;
 
-    left: 15%;
-    top: 52%;
+    left: 9%;
+    top: 48%;
 
-    font-size: 40px;
-
-    transition: left 0.2s, top 0.2s;
+    font-size: 42px;
 }
