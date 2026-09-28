@@ -13,57 +13,38 @@
 
         <div id="map">
 
-            <!-- CAMINO PRINCIPAL -->
-            <svg id="paths" viewBox="0 0 1000 700" preserveAspectRatio="none">
-
-                <path
-                    d="M 100 390
-                       L 280 390
-                       C 330 390, 350 350, 390 315
-                       L 500 210
-                       L 610 100"
-                    class="map-path"
-                />
-
-                <path
-                    d="M 280 390
-                       C 360 390, 430 410, 510 410
-                       L 730 410
-                       L 850 410
-                       C 890 410, 900 450, 900 500"
-                    class="map-path"
-                />
-
-            </svg>
+            <!-- CAMINOS -->
+            <div class="path horizontal-main"></div>
+            <div class="path diagonal-skills"></div>
+            <div class="path horizontal-projects"></div>
+            <div class="path diagonal-formation"></div>
 
 
-            <!-- PUNTOS DEL MAPA -->
-
+            <!-- PUNTOS -->
             <div class="node start-node"></div>
 
             <div class="node about-node">
-                <span class="node-icon">★</span>
-                <span class="node-name">SOBRE MÍ</span>
+                <span>★</span>
+                <strong>SOBRE MÍ</strong>
             </div>
 
             <div class="node skills-node">
-                <span class="node-icon">⚒</span>
-                <span class="node-name">HABILIDADES</span>
+                <span>⚒</span>
+                <strong>HABILIDADES</strong>
             </div>
 
             <div class="node projects-node">
-                <span class="node-icon">◆</span>
-                <span class="node-name">PROYECTOS</span>
+                <span>◆</span>
+                <strong>PROYECTOS</strong>
             </div>
 
             <div class="node education-node">
-                <span class="node-icon">★</span>
-                <span class="node-name">FORMACIÓN</span>
+                <span>★</span>
+                <strong>FORMACIÓN</strong>
             </div>
 
 
             <!-- PERSONAJE -->
-
             <div id="player">👤</div>
 
         </div>
