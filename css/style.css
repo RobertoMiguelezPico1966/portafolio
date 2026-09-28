@@ -16,9 +16,9 @@ body {
 }
 
 
-/* =========================
+/* =================================
    MAPA
-   ========================= */
+================================= */
 
 #game {
     width: 100vw;
@@ -29,45 +29,71 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0 3px, transparent 4px),
-        radial-gradient(circle at 70% 65%, rgba(255,255,255,0.07) 0 4px, transparent 5px),
-        #65bd68;
 }
 
 
-/* =========================
+/* =================================
    CAMINOS
-   ========================= */
+================================= */
 
-#paths {
+.path {
     position: absolute;
 
-    width: 100%;
-    height: 100%;
+    height: 16px;
 
-    left: 0;
-    top: 0;
-}
+    background: #d8b56a;
 
-.map-path {
-    fill: none;
+    border-radius: 20px;
 
-    stroke: #d6b36a;
-    stroke-width: 22;
-
-    stroke-linecap: round;
-    stroke-linejoin: round;
-
-    filter: drop-shadow(0 5px 0 rgba(0, 0, 0, 0.15));
+    z-index: 1;
 }
 
 
-/* =========================
+/* Camino desde el inicio hasta SOBRE MÍ */
+
+.horizontal-main {
+    width: 18%;
+    left: 10%;
+    top: 56%;
+}
+
+
+/* Camino que sube hacia HABILIDADES */
+
+.diagonal-skills {
+    width: 27%;
+    left: 27%;
+    top: 43%;
+
+    transform: rotate(-35deg);
+    transform-origin: left center;
+}
+
+
+/* Camino hacia PROYECTOS */
+
+.horizontal-projects {
+    width: 45%;
+    left: 28%;
+    top: 56%;
+}
+
+
+/* Camino que baja hacia FORMACIÓN */
+
+.diagonal-formation {
+    width: 17%;
+    left: 72%;
+    top: 61%;
+
+    transform: rotate(35deg);
+    transform-origin: left center;
+}
+
+
+/* =================================
    PUNTOS
-   ========================= */
+================================= */
 
 .node {
     position: absolute;
@@ -75,120 +101,133 @@ body {
     width: 48px;
     height: 48px;
 
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
     background: #fff4c7;
 
-    border: 7px solid #3d3326;
+    border: 6px solid #3d3326;
 
-    box-shadow:
-        0 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
 
     z-index: 5;
 
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.node-icon {
-    font-size: 19px;
-    color: #3d3326;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 
-/* POSICIONES */
+/* Inicio */
 
 .start-node {
     left: 10%;
-    top: 55.7%;
+    top: 56%;
+
+    transform: translate(-50%, -50%);
 }
+
+
+/* Sobre mí */
 
 .about-node {
     left: 28%;
-    top: 55.7%;
+    top: 56%;
+
+    transform: translate(-50%, -50%);
 }
 
+
+/* Habilidades */
+
 .skills-node {
-    left: 61%;
-    top: 14.3%;
+    left: 55%;
+    top: 20%;
+
+    transform: translate(-50%, -50%);
 }
+
+
+/* Proyectos */
 
 .projects-node {
     left: 73%;
-    top: 58.6%;
+    top: 56%;
+
+    transform: translate(-50%, -50%);
 }
+
+
+/* Formación */
 
 .education-node {
-    left: 90%;
-    top: 71.4%;
+    left: 88%;
+    top: 70%;
+
+    transform: translate(-50%, -50%);
 }
 
 
-/* =========================
-   NOMBRES
-   ========================= */
+/* =================================
+   TEXTO DE LOS NODOS
+================================= */
 
-.node-name {
+.node span {
+    font-size: 18px;
+}
+
+.node strong {
     position: absolute;
 
     white-space: nowrap;
 
-    font-size: 20px;
-    font-weight: 900;
-
     color: white;
+
+    font-size: 20px;
+    font-weight: bold;
 
     text-shadow:
         2px 2px 0 #3d3326,
         -1px -1px 0 #3d3326,
         1px -1px 0 #3d3326,
         -1px 1px 0 #3d3326;
-
-    pointer-events: none;
 }
 
 
-/* Cada nombre tiene su posición */
+/* Posición de los nombres */
 
-.about-node .node-name {
-    top: 58px;
+.about-node strong {
+    top: 55px;
     left: 50%;
-
     transform: translateX(-50%);
 }
 
-.skills-node .node-name {
-    bottom: 58px;
+.skills-node strong {
+    bottom: 55px;
     left: 50%;
-
     transform: translateX(-50%);
 }
 
-.projects-node .node-name {
-    top: -38px;
+.projects-node strong {
+    top: -35px;
     left: 55px;
 }
 
-.education-node .node-name {
+.education-node strong {
     top: 55px;
     left: 50%;
-
     transform: translateX(-50%);
 }
 
 
-/* =========================
+/* =================================
    PERSONAJE
-   ========================= */
+================================= */
 
 #player {
     position: absolute;
 
     left: 10%;
-    top: 48%;
+    top: 49%;
 
     transform: translate(-50%, -50%);
 
@@ -197,27 +236,4 @@ body {
     z-index: 10;
 
     filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.25));
-}
-
-
-/* =========================
-   PEQUEÑOS DETALLES
-   ========================= */
-
-.node::after {
-    content: "";
-
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
-
-    bottom: -8px;
-    right: -8px;
-
-    background: #fff4c7;
-
-    border-radius: 50%;
-
-    border: 3px solid #3d3326;
 }
