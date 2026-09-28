@@ -3,52 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Mi Portfolio</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-   <main id="game">
+    <main id="game">
 
-    <div id="map">
+        <div id="map">
 
-        <!-- Camino -->
-        <div class="path path-1"></div>
-        <div class="path path-2"></div>
-        <div class="path path-3"></div>
-        <div class="path path-4"></div>
-        <div class="path path-5"></div>
+            <!-- CAMINO PRINCIPAL -->
+            <svg id="paths" viewBox="0 0 1000 700" preserveAspectRatio="none">
 
-        <!-- Puntos del mapa -->
-        <div class="node node-start"></div>
-        <div class="node node-about"></div>
-        <div class="node node-skills"></div>
-        <div class="node node-projects"></div>
-        <div class="node node-education"></div>
+                <path
+                    d="M 100 390
+                       L 280 390
+                       C 330 390, 350 350, 390 315
+                       L 500 210
+                       L 610 100"
+                    class="map-path"
+                />
 
-        <!-- Nombres -->
-        <div class="level-name name-about">SOBRE MÍ</div>
-        <div class="level-name name-skills">🛠️ HABILIDADES</div>
-        <div class="level-name name-projects">📁 PROYECTOS</div>
-        <div class="level-name name-education">🎓 FORMACIÓN</div>
+                <path
+                    d="M 280 390
+                       C 360 390, 430 410, 510 410
+                       L 730 410
+                       L 850 410
+                       C 890 410, 900 450, 900 500"
+                    class="map-path"
+                />
 
-        <!-- Personaje -->
-        <div id="player">👤</div>
+            </svg>
 
-    </div>
 
-</main>
+            <!-- PUNTOS DEL MAPA -->
 
-    <script src="js/game.js"></script>
+            <div class="node start-node"></div>
 
-</body>
-</html>
+            <div class="node about-node">
+                <span class="node-icon">★</span>
+                <span class="node-name">SOBRE MÍ</span>
+            </div>
+
+            <div class="node skills-node">
+                <span class="node-icon">⚒</span>
+                <span class="node-name">HABILIDADES</span>
+            </div>
+
+            <div class="node projects-node">
+                <span class="node-icon">◆</span>
+                <span class="node-name">PROYECTOS</span>
+            </div>
+
+            <div class="node education-node">
+                <span class="node-icon">★</span>
+                <span class="node-name">FORMACIÓN</span>
+            </div>
+
+
+            <!-- PERSONAJE -->
+
+            <div id="player">👤</div>
+
+        </div>
 
     </main>
 
     <script src="js/game.js"></script>
+
 </body>
 </html>
