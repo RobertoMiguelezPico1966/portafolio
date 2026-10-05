@@ -23,24 +23,12 @@ body {
 #game {
     width: 100vw;
     height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #map {
     position: relative;
-
-    width: 100vw;
-    height: 56.25vw;
-
-    max-height: 100vh;
-    max-width: 177.78vh;
-
-    margin: auto;
-
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -210,12 +198,14 @@ body {
 .about-node strong {
     top: 55px;
     left: 50%;
+
     transform: translateX(-50%);
 }
 
 .skills-node strong {
     bottom: 55px;
     left: 50%;
+
     transform: translateX(-50%);
 }
 
@@ -227,6 +217,7 @@ body {
 .education-node strong {
     top: 55px;
     left: 50%;
+
     transform: translateX(-50%);
 }
 
