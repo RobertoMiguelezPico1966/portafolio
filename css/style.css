@@ -12,7 +12,11 @@ body {
 body {
     overflow: hidden;
     font-family: Arial, sans-serif;
-    background: #65bd68;
+
+    background-image: url("../mapa-pixel-art-88x41.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
