@@ -36,58 +36,28 @@ body {
    CAMINOS
 ================================= */
 
-.path {
+.paths {
     position: absolute;
 
-    height: 16px;
+    width: 100%;
+    height: 100%;
 
-    background: #d8b56a;
-
-    border-radius: 20px;
+    top: 0;
+    left: 0;
 
     z-index: 1;
+
+    overflow: visible;
 }
 
+.paths path {
+    fill: none;
 
-/* Camino desde el inicio hasta SOBRE MÍ */
+    stroke: #d8b56a;
+    stroke-width: 16;
 
-.horizontal-main {
-    width: 18%;
-    left: 10%;
-    top: 56%;
-}
-
-
-/* Camino que sube hacia HABILIDADES */
-
-.diagonal-skills {
-    width: 27%;
-    left: 27%;
-    top: 43%;
-
-    transform: rotate(-35deg);
-    transform-origin: left center;
-}
-
-
-/* Camino hacia PROYECTOS */
-
-.horizontal-projects {
-    width: 45%;
-    left: 28%;
-    top: 56%;
-}
-
-
-/* Camino que baja hacia FORMACIÓN */
-
-.diagonal-formation {
-    width: 17%;
-    left: 72%;
-    top: 61%;
-
-    transform: rotate(35deg);
-    transform-origin: left center;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 
