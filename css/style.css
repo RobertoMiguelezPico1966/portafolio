@@ -20,22 +20,21 @@ body {
 }
 
 #title {
-    position: absolute;
-
+    position: fixed;
     top: 25px;
     left: 30px;
 
     margin: 0;
+    padding: 0;
 
     color: #65bd68;
 
     font-family: "Courier New", monospace;
     font-size: 32px;
+    line-height: 1;
 
-    -webkit-text-stroke: 2px #000;
-
-    text-shadow:
-        3px 3px 0 #000;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 3px 3px 0 black;
 
     z-index: 20;
 }
