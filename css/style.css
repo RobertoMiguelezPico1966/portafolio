@@ -222,6 +222,11 @@ body {
    PERSONAJE
 ================================= */
 
+
+/* =================================
+   PERSONAJE
+================================= */
+
 #player {
     position: absolute;
 
@@ -235,4 +240,22 @@ body {
     z-index: 10;
 
     filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.25));
+
+    transition:
+        left 0.25s ease-in-out,
+        top 0.25s ease-in-out;
+}
+
+
+/* =================================
+   ANIMACIÓN Y SELECCIÓN DE NODOS
+================================= */
+
+.node {
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.node.active {
+    transform: translate(-50%, -50%) scale(1.25);
 }
