@@ -389,14 +389,11 @@ body {
 
     color: #3d3326;
 
-    font-family: "Nunito", sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    line-height: 1.3;
+    font-family: "Press Start 2P", cursive;
+    font-size: 22px;
+    line-height: 1.8;
 
     border-bottom: 4px solid #d8b56a;
-
-    text-shadow: 2px 2px 0 #d8b56a;
 }
 
 
