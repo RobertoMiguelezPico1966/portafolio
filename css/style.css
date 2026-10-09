@@ -309,19 +309,27 @@ body {
 
 /* Contenido del apartado */
 
+
 #section-content {
-    max-width: 900px;
+    max-width: 950px;
     min-height: 300px;
 
     margin: 0 auto;
-    padding: 30px;
+    padding: 35px;
 
     background: #fff4c7;
     color: #3d3326;
 
-    border: 6px solid #3d3326;
+    border: 5px solid #3d3326;
+    border-radius: 12px;
 
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0 0 0 5px #d8b56a,
+        8px 8px 0 #3d3326;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
 }
 
 /* Título del apartado */
