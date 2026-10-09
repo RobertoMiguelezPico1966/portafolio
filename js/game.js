@@ -9,4 +9,17 @@ const nodes = {
     education: document.querySelector(".education-node")
 };
 
-console.log(nodes);
+// Caminos que conectan los puntos
+const connections = {
+    start: ["about"],
+    about: ["start", "skills", "projects"],
+    skills: ["about"],
+    projects: ["about", "education"],
+    education: ["projects"]
+};
+
+// Punto donde empieza el personaje
+let currentNode = "start";
+
+console.log("Punto inicial:", currentNode);
+console.log("Conexiones:", connections);
