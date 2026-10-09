@@ -50,9 +50,33 @@ const movements = {
 
 // Contenido provisional de los apartados
 const sections = {
+    
     about: {
         title: "SOBRE MÍ",
-        content: "<p>Aquí irá tu presentación personal.</p>"
+        content: `
+            <p>
+                Soy estudiante de Desarrollo de Aplicaciones Web y técnico
+                informático. Combino mis conocimientos técnicos con mi
+                creatividad y mi interés por el diseño para crear experiencias
+                digitales funcionales y visualmente atractivas.
+            </p>
+
+            <h3>Diseño web · Mussara</h3>
+            <p>
+                Experiencia en diseño y desarrollo web, tanto en la creación
+                de páginas desde cero como en la mejora y modificación de
+                sitios existentes. He trabajado en el diseño visual de páginas,
+                buscando una buena presentación de los contenidos y una
+                experiencia de usuario atractiva.
+            </p>
+
+            <h3>Técnico informático · OneSystem</h3>
+            <p>
+                Experiencia en reparación y mantenimiento de ordenadores,
+                instalación y configuración de sistemas operativos y
+                controladores, y venta online de equipos informáticos.
+            </p>
+        `
     },
     skills: {
         title: "HABILIDADES",
