@@ -1,4 +1,6 @@
-// Lógica del videojuego
+
+ // Lógica del videojuego
+
 const player = document.getElementById("player");
 const map = document.getElementById("map");
 
@@ -20,7 +22,7 @@ const connections = {
     education: ["projects"]
 };
 
-// Movimientos permitidos desde cada punto
+// Movimientos permitidos
 const movements = {
     start: {
         right: "about"
@@ -35,14 +37,16 @@ const movements = {
     },
     projects: {
         left: "about",
+        right: "education",
         down: "education"
     },
     education: {
+        left: "projects",
         up: "projects"
     }
 };
 
-// Punto inicial del personaje
+// Punto inicial
 let currentNode = "start";
 
 // Colocar al personaje en el centro de un punto
@@ -61,15 +65,30 @@ function placePlayerAtNode(nodeName) {
     player.style.transform = "translate(-50%, -50%)";
 }
 
-// Mover al personaje
+// Actualizar el punto seleccionado
+function selectNode(nodeName) {
+    currentNode = nodeName;
+
+    // Quitar el tamaño extra del punto anterior
+    Object.values(nodes).forEach(function(node) {
+        node.classList.remove("active");
+    });
+
+    // Destacar el punto actual
+    nodes[currentNode].classList.add("active");
+
+    // Mover el personaje
+    placePlayerAtNode(currentNode);
+
+    console.log("Nodo actual:", currentNode);
+}
+
+// Mover al personaje con el teclado
 function movePlayer(direction) {
     const nextNode = movements[currentNode][direction];
 
     if (nextNode) {
-        currentNode = nextNode;
-        placePlayerAtNode(currentNode);
-
-        console.log("Nodo actual:", currentNode);
+        selectNode(nextNode);
     }
 }
 
@@ -90,8 +109,20 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-// Colocar al personaje en el punto inicial
-placePlayerAtNode(currentNode);
+// Seleccionar puntos directamente con el ratón
+Object.entries(nodes).forEach(function(entry) {
+    const nodeName = entry[0];
+    const node = entry[1];
 
-console.log("Punto inicial:", currentNode);
-console.log("Conexiones:", connections);
+    node.addEventListener("click", function() {
+        selectNode(nodeName);
+    });
+});
+
+// Colocar al personaje al iniciar
+selectNode(currentNode);
+
+// Recalcular la posición si cambia el tamaño de la ventana
+window.addEventListener("resize", function() {
+    placePlayerAtNode(currentNode);
+});
