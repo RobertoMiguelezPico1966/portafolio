@@ -261,3 +261,107 @@ body {
     border-color: #fff4c7;
     transform: translate(-50%, -50%) scale(1.25);
 }
+
+
+/* =================================
+   PANTALLA DE LOS APARTADOS
+================================= */
+
+#section-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+
+    padding: 100px 30px 30px;
+
+    background: #65bd68;
+
+    overflow-y: auto;
+}
+
+/* Botón para volver al mapa */
+
+#back-button {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+
+    padding: 14px 18px;
+
+    background: #fff4c7;
+    color: #3d3326;
+
+    border: 4px solid #3d3326;
+
+    font-family: "Press Start 2P", cursive;
+    font-size: 10px;
+    line-height: 1.8;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 #3d3326;
+}
+
+#back-button:hover {
+    background: #3d3326;
+    color: #fff4c7;
+}
+
+/* Contenido del apartado */
+
+#section-content {
+    max-width: 900px;
+    min-height: 300px;
+
+    margin: 0 auto;
+    padding: 30px;
+
+    background: #fff4c7;
+    color: #3d3326;
+
+    border: 6px solid #3d3326;
+
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Título del apartado */
+
+#section-content h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    font-family: "Press Start 2P", cursive;
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+/* Texto */
+
+#section-content p {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media (max-width: 600px) {
+    #section-screen {
+        padding: 85px 15px 20px;
+    }
+
+    #back-button {
+        top: 15px;
+        right: 15px;
+        font-size: 8px;
+        padding: 10px;
+    }
+
+    #section-content {
+        padding: 20px;
+    }
+
+    #section-content h2 {
+        font-size: 16px;
+    }
+}
