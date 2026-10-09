@@ -78,10 +78,28 @@ const sections = {
             </p>
         `
     },
-    skills: {
-        title: "HABILIDADES",
-        content: "<p>Aquí aparecerán tus habilidades.</p>"
-    },
+   
+skills: {
+    title: "HABILIDADES",
+    content: `
+        <h3>Lenguajes de programación y marcas</h3>
+        <p>
+            HTML5 · CSS3 · JavaScript · Java · PHP · .NET · C#
+        </p>
+
+        <h3>Herramientas de desarrollo</h3>
+        <p>
+            Visual Studio 2022 · Visual Studio Code · Apache ·
+            Dreamweaver · GitHub · WordPress
+        </p>
+
+        <h3>Administración de sistemas y hardware</h3>
+        <p>
+            Instalación y administración de sistemas operativos
+            Windows, reparación y mantenimiento de hardware.
+        </p>
+    `
+},
     projects: {
         title: "PROYECTOS",
         content: "<p>Aquí podrás presentar tus proyectos.</p>"
