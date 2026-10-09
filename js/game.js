@@ -1,8 +1,10 @@
 
- // Lógica del videojuego
-
 const player = document.getElementById("player");
 const map = document.getElementById("map");
+
+const sectionScreen = document.getElementById("section-screen");
+const sectionContent = document.getElementById("section-content");
+const backButton = document.getElementById("back-button");
 
 // Puntos del mapa
 const nodes = {
@@ -46,6 +48,26 @@ const movements = {
     }
 };
 
+// Contenido provisional de los apartados
+const sections = {
+    about: {
+        title: "SOBRE MÍ",
+        content: "<p>Aquí irá tu presentación personal.</p>"
+    },
+    skills: {
+        title: "HABILIDADES",
+        content: "<p>Aquí aparecerán tus habilidades.</p>"
+    },
+    projects: {
+        title: "PROYECTOS",
+        content: "<p>Aquí podrás presentar tus proyectos.</p>"
+    },
+    education: {
+        title: "FORMACIÓN",
+        content: "<p>Aquí aparecerán tus estudios y certificados.</p>"
+    }
+};
+
 // Punto inicial
 let currentNode = "start";
 
@@ -69,21 +91,18 @@ function placePlayerAtNode(nodeName) {
 function selectNode(nodeName) {
     currentNode = nodeName;
 
-    // Quitar el tamaño extra del punto anterior
     Object.values(nodes).forEach(function(node) {
         node.classList.remove("active");
     });
 
-    // Destacar el punto actual
     nodes[currentNode].classList.add("active");
 
-    // Mover el personaje
     placePlayerAtNode(currentNode);
 
     console.log("Nodo actual:", currentNode);
 }
 
-// Mover al personaje con el teclado
+// Mover al personaje
 function movePlayer(direction) {
     const nextNode = movements[currentNode][direction];
 
@@ -92,8 +111,47 @@ function movePlayer(direction) {
     }
 }
 
-// Detectar las flechas del teclado
+// Abrir el apartado seleccionado
+function openSection() {
+    const section = sections[currentNode];
+
+    // El punto inicial no tiene apartado
+    if (!section) {
+        return;
+    }
+
+    sectionContent.innerHTML =
+        "<h2>" + section.title + "</h2>" + section.content;
+
+    sectionScreen.hidden = false;
+}
+
+// Volver al mapa
+function closeSection() {
+    sectionScreen.hidden = true;
+}
+
+// Botón para volver al mapa
+backButton.addEventListener("click", closeSection);
+
+// Detectar las teclas
 document.addEventListener("keydown", function(event) {
+
+    // Si un apartado está abierto, no mover al personaje
+    if (!sectionScreen.hidden) {
+        if (event.key === "Escape") {
+            closeSection();
+        }
+
+        return;
+    }
+
+    // Abrir apartado con Enter
+    if (event.key === "Enter") {
+        openSection();
+        return;
+    }
+
     const keys = {
         ArrowRight: "right",
         ArrowLeft: "left",
@@ -109,7 +167,7 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-// Seleccionar puntos directamente con el ratón
+// Seleccionar puntos con el ratón
 Object.entries(nodes).forEach(function(entry) {
     const nodeName = entry[0];
     const node = entry[1];
@@ -122,7 +180,7 @@ Object.entries(nodes).forEach(function(entry) {
 // Colocar al personaje al iniciar
 selectNode(currentNode);
 
-// Recalcular la posición si cambia el tamaño de la ventana
+// Recalcular la posición al cambiar el tamaño de la ventana
 window.addEventListener("resize", function() {
     placePlayerAtNode(currentNode);
 });
