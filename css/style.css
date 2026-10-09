@@ -1,3 +1,8 @@
+
+/* =================================
+   ESTILOS GENERALES
+================================= */
+
 * {
     box-sizing: border-box;
 }
@@ -11,13 +16,18 @@ body {
 
 body {
     overflow: hidden;
-    font-family: Arial, sans-serif;
+    font-family: "Nunito", sans-serif;
 
     background-image: url("../mapa-pixel-art-88x41.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+
+/* =================================
+   TÍTULO PRINCIPAL
+================================= */
 
 #title {
     position: fixed;
@@ -39,8 +49,10 @@ body {
     z-index: 20;
 }
 
+
 /* =================================
    MAPA
+   CONSERVADO
 ================================= */
 
 #game {
@@ -56,12 +68,12 @@ body {
 
 
 /* =================================
-   CAMINOS
+   CAMINOS SVG
+   CONSERVADOS
 ================================= */
 
 .paths {
     position: absolute;
-
     top: 0;
     left: 0;
 
@@ -72,13 +84,11 @@ body {
 
     display: block;
     overflow: visible;
-
     pointer-events: none;
 }
 
 .paths path {
     fill: none;
-
     stroke: #d8b56a;
     stroke-width: 16;
 
@@ -88,7 +98,8 @@ body {
 
 
 /* =================================
-   PUNTOS
+   PUNTOS DEL MAPA
+   CONSERVADOS
 ================================= */
 
 .node {
@@ -98,9 +109,7 @@ body {
     height: 48px;
 
     background: #fff4c7;
-
     border: 6px solid #3d3326;
-
     border-radius: 50%;
 
     z-index: 5;
@@ -110,55 +119,38 @@ body {
     justify-content: center;
 
     box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.2s ease;
+    cursor: pointer;
 }
-
-
-/* Inicio */
 
 .start-node {
     left: 10%;
     top: 56%;
-
     transform: translate(-50%, -50%);
 }
-
-
-/* Sobre mí */
 
 .about-node {
     left: 28%;
     top: 56%;
-
     transform: translate(-50%, -50%);
 }
-
-
-/* Habilidades */
 
 .skills-node {
     left: 55%;
     top: 20%;
-
     transform: translate(-50%, -50%);
 }
-
-
-/* Proyectos */
 
 .projects-node {
     left: 73%;
     top: 56%;
-
     transform: translate(-50%, -50%);
 }
-
-
-/* Formación */
 
 .education-node {
     left: 88%;
     top: 70%;
-
     transform: translate(-50%, -50%);
 }
 
@@ -171,20 +163,18 @@ body {
     font-size: 18px;
 }
 
-/* Invertir el color del contenido de la casilla activa */
 .node.active span {
     filter: invert(1);
 }
 
 .node strong {
     position: absolute;
-
     white-space: nowrap;
 
     color: white;
-
+    font-family: "Nunito", sans-serif;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 800;
 
     text-shadow:
         2px 2px 0 #3d3326,
@@ -193,20 +183,15 @@ body {
         -1px 1px 0 #3d3326;
 }
 
-
-/* Posición de los nombres */
-
 .about-node strong {
     top: 55px;
     left: 50%;
-
     transform: translateX(-50%);
 }
 
 .skills-node strong {
     bottom: 55px;
     left: 50%;
-
     transform: translateX(-50%);
 }
 
@@ -218,12 +203,13 @@ body {
 .education-node strong {
     top: 55px;
     left: 50%;
-
     transform: translateX(-50%);
 }
 
+
 /* =================================
    PERSONAJE
+   CONSERVADO
 ================================= */
 
 #player {
@@ -235,7 +221,6 @@ body {
     transform: translate(-50%, -50%);
 
     font-size: 48px;
-
     z-index: 10;
 
     filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.25));
@@ -245,17 +230,6 @@ body {
         top 0.25s ease-in-out;
 }
 
-
-/* =================================
-   ANIMACIÓN Y SELECCIÓN DE NODOS
-================================= */
-
-.node {
-    transition: transform 0.2s ease;
-    cursor: pointer;
-}
-
-/* Invertir el color de la casilla activa y aumentar su tamaño */
 .node.active {
     background: #3d3326;
     border-color: #fff4c7;
@@ -264,7 +238,7 @@ body {
 
 
 /* =================================
-   PANTALLA DE LOS APARTADOS
+   PANTALLA RPG
 ================================= */
 
 #section-screen {
@@ -272,104 +246,250 @@ body {
     inset: 0;
     z-index: 30;
 
-    padding: 100px 30px 30px;
+    padding: 95px 30px 40px;
 
     background: #65bd68;
-
     overflow-y: auto;
 }
 
-/* Botón para volver al mapa */
+/* Textura visual sutil para el fondo */
+
+#section-screen::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    opacity: 0.12;
+
+    background-image:
+        radial-gradient(#3d3326 1px, transparent 1px);
+
+    background-size: 8px 8px;
+}
+
+/* Mantener el contenido por encima de la textura */
+
+#section-content,
+#back-button {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =================================
+   BOTÓN VOLVER AL MAPA
+================================= */
 
 #back-button {
     position: fixed;
-    top: 25px;
+    top: 22px;
     right: 30px;
 
-    padding: 14px 18px;
+    padding: 12px 16px;
+
+    background: #fff4c7;
+    color: #3d3326;
+
+    border: 3px solid #3d3326;
+    border-radius: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 #3d3326;
+
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background-color 0.12s ease;
+}
+
+#back-button:hover {
+    background: #d8b56a;
+
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #3d3326;
+}
+
+#back-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+#back-button:focus-visible {
+    outline: 3px dashed #fff4c7;
+    outline-offset: 5px;
+}
+
+
+/* =================================
+   PANEL PRINCIPAL
+================================= */
+
+#section-content {
+    position: relative;
+
+    max-width: 960px;
+    min-height: 300px;
+
+    margin: 0 auto;
+    padding: 32px;
 
     background: #fff4c7;
     color: #3d3326;
 
     border: 4px solid #3d3326;
-
-    font-family: "Press Start 2P", cursive;
-    font-size: 10px;
-    line-height: 1.8;
-
-    cursor: pointer;
-
-    box-shadow: 4px 4px 0 #3d3326;
-}
-
-#back-button:hover {
-    background: #3d3326;
-    color: #fff4c7;
-}
-
-/* Contenido del apartado */
-
-
-#section-content {
-    max-width: 950px;
-    min-height: 300px;
-
-    margin: 0 auto;
-    padding: 35px;
-
-    background: #fff4c7;
-    color: #3d3326;
-
-    border: 5px solid #3d3326;
-    border-radius: 12px;
+    border-radius: 0;
 
     box-shadow:
-        0 0 0 5px #d8b56a,
+        0 0 0 4px #d8b56a,
         8px 8px 0 #3d3326;
 
     font-family: "Nunito", sans-serif;
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 600;
     line-height: 1.8;
 }
 
-/* Título del apartado */
+/* Esquinas decorativas */
+
+#section-content::before,
+#section-content::after {
+    content: "";
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    background: #d8b56a;
+    border: 3px solid #3d3326;
+
+    pointer-events: none;
+}
+
+#section-content::before {
+    top: -4px;
+    left: -4px;
+}
+
+#section-content::after {
+    right: -4px;
+    bottom: -4px;
+}
+
+
+/* =================================
+   CABECERA DEL PERFIL
+================================= */
 
 #section-content h2 {
-    margin-top: 0;
-    margin-bottom: 30px;
+    margin: 0 0 26px;
+    padding: 0 0 18px;
 
-    font-family: "Press Start 2P", cursive;
-    font-size: 22px;
-    line-height: 1.8;
+    color: #3d3326;
+
+    font-family: "Silkscreen", "Nunito", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.6;
+
+    border-bottom: 4px solid #d8b56a;
+
+    text-shadow: 2px 2px 0 #d8b56a;
 }
 
-/* Texto */
+
+/* =================================
+   SUBTÍTULOS DE EXPERIENCIA
+================================= */
+
+#section-content h3 {
+    margin: 30px 0 12px;
+    padding: 10px 14px;
+
+    background: #d8b56a;
+    color: #3d3326;
+
+    border: 3px solid #3d3326;
+    border-left-width: 8px;
+    border-radius: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.5;
+
+    box-shadow: 4px 4px 0 rgba(61, 51, 38, 0.2);
+}
+
+
+/* =================================
+   PÁRRAFOS
+================================= */
 
 #section-content p {
-    font-family: Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
+    margin: 0 0 22px;
+
+    color: #3d3326;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.85;
 }
 
-/* Adaptación a pantallas pequeñas */
+
+/* =================================
+   ADAPTACIÓN A MÓVILES
+================================= */
 
 @media (max-width: 600px) {
+
+    #title {
+        top: 16px;
+        left: 15px;
+        font-size: 20px;
+    }
+
     #section-screen {
-        padding: 85px 15px 20px;
+        padding: 80px 18px 25px;
     }
 
     #back-button {
-        top: 15px;
+        top: 14px;
         right: 15px;
-        font-size: 8px;
-        padding: 10px;
+
+        padding: 9px 12px;
+        font-size: 12px;
     }
 
     #section-content {
-        padding: 20px;
+        padding: 22px 18px;
+
+        font-size: 16px;
+
+        box-shadow:
+            0 0 0 3px #d8b56a,
+            5px 5px 0 #3d3326;
     }
 
     #section-content h2 {
+        margin-bottom: 22px;
+        font-size: 19px;
+    }
+
+    #section-content h3 {
+        margin-top: 24px;
+        padding: 9px 10px;
+        font-size: 18px;
+    }
+
+    #section-content p {
         font-size: 16px;
+        line-height: 1.8;
     }
 }
