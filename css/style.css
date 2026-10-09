@@ -171,6 +171,11 @@ body {
     font-size: 18px;
 }
 
+/* Invertir el color del contenido de la casilla activa */
+.node.active span {
+    filter: invert(1);
+}
+
 .node strong {
     position: absolute;
 
@@ -250,7 +255,7 @@ body {
     cursor: pointer;
 }
 
-
+/* Invertir el color de la casilla activa y aumentar su tamaño */
 .node.active {
     background: #3d3326;
     border-color: #fff4c7;
